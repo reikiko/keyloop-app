@@ -235,7 +235,7 @@ export const createProperty = async (
     ).toString()}`;
     const geocodingResponse = await axios.get(geocodingUrl, {
       headers: {
-        "User-Agent": "KeyloopApp (justsomedummyemail@gmail.com",
+        "User-Agent": "KeyloopApp justsomedummyemail@gmail.com",
       },
     });
     const [longitude, latitude] =
@@ -285,6 +285,7 @@ export const createProperty = async (
 
     res.status(201).json(newProperty);
   } catch (err: any) {
+    console.error(err);
     res
       .status(500)
       .json({ message: `Error creating property: ${err.message}` });
