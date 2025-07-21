@@ -65,7 +65,7 @@ const SearchPage = () => {
   );
 };
 
-export function Search() {
+export default function Search() {
   return (
     <Suspense>
       <SearchPage />
