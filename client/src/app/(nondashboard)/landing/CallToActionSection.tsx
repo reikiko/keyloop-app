@@ -10,7 +10,7 @@ const CallToActionSection = () => {
     <div className="relative py-24">
       <Image
         src="/landing-call-to-action.jpg"
-        alt="Rentiful Search Section Background"
+        alt="Keyloop Search Section Background"
         fill
         className="object-cover object-center"
       />
@@ -25,13 +25,12 @@ const CallToActionSection = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0 md:mr-10">
             <h2 className="text-2xl font-bold text-white">
-              Find Your Dream Rental Property
+              Ready to Unlock Your Next Home?
             </h2>
           </div>
           <div>
             <p className="text-white mb-3">
-              Discover a wide range of rental properties in your desired
-              location.
+              Explore listings you can trust—right where you want to be.
             </p>
             <div className="flex justify-center md:justify-start gap-4">
               <button

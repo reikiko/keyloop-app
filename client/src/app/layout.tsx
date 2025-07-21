@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "@/app/providers";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Real Estate",
+  title: "Keyloop",
   description: "Passion project by Kiko Reiki",
 };
 
@@ -28,9 +29,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <Providers >
-        {children}
-      </Providers>
+        <Toaster closeButton />
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

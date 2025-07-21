@@ -53,15 +53,15 @@ const Navbar = ({ loading }: { loading: boolean }) => {
             <div className="flex items-center gap-3">
               <Image
                 src={"/logo.svg"}
-                alt={"Rentiful Logo"}
-                width={24}
-                height={24}
-                className="w-6 h-6"
+                alt={"Keyloop Logo"}
+                width={60}
+                height={60}
+                className="w-12 h-12"
               />
               <div className="text-xl font-bold group-hover:!text-primary-300">
-                RENT
+                KEY
                 <span className="text-secondary-500 font-light group-hover:!text-primary-300">
-                  IFUL
+                  LOOP
                 </span>
               </div>
             </div>
@@ -96,7 +96,7 @@ const Navbar = ({ loading }: { loading: boolean }) => {
         </div>
         {!isDashboardPage && (
           <p className="text-primary-200 hidden md:block">
-            Discover your perfect rental apartment with our advanced search
+            Unlock better rentals with our advanced search
           </p>
         )}
         <div className="flex items-center gap-5">

@@ -29,9 +29,9 @@ const components = {
     return (
       <View className="mt-4 mb-7">
         <Heading level={3} className="!text-2xl !font-bold">
-          RENT
-          <span className="text-secondary-500 font-light hover:!text-primary-300">
-            IFUL
+          KEY
+          <span className="text-secondary-700 font-light hover:!text-primary-300">
+            LOOP
           </span>
         </Heading>
         <p className="text-muted-foreground mt-2">
@@ -152,7 +152,12 @@ const Auth = ({ children }: { children: React.ReactNode }) => {
     }
   }, [user, isAuthPage, router]);
 
-  // Allow access to public pages
+  // Prevent rendering Authenticator on /signin or /signup when already signed in
+  if (user && isAuthPage) {
+    return null; //
+  }
+
+  // Allow access to public (non-auth, non-dashboard) pages
   if (!isAuthPage && !isDashboardPage) {
     return <>{children}</>;
   }

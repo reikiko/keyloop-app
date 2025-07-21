@@ -41,7 +41,7 @@ const FeatureCard = ({
         src={imageSrc}
         width={400}
         height={400}
-        className="w-full h-full object-contain"
+        className="w-full h-full object-contain transition group-hover:scale-[1.04] group-hover:translate-x-3 group-hover:-translate-y-3 group-hover:rotate-2"
         alt={title}
       />
     </div>
@@ -71,25 +71,25 @@ const FeaturesSection = () => {
           variants={itemVariants}
           className="text-3xl font-bold text-center mb-12 w-full sm:w-2/3 mx-auto"
         >
-          Quickly find the home you want using our effective search filters!
+          Nail your perfect place—faster with powerful search tools!
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 xl:gap-16">
           {[0, 1, 2].map((index) => (
-            <motion.div key={index} variants={itemVariants}>
+            <motion.div key={index} variants={itemVariants} className="group">
               <FeatureCard
                 imageSrc={`/landing-search${3 - index}.png`}
                 title={
                   [
-                    "Trustworthy and Verified Listings",
-                    "Browse Rental Listings with Ease",
-                    "Simplify Your Rental Search with Advanced",
+                    "Verified Listings You Can Trust",
+                    "Effortless Browsing Experience",
+                    "Advanced Filters That Work for You",
                   ][index]
                 }
                 description={
                   [
-                    "Discover the best rental options with user reviews and ratings.",
-                    "Get access to user reviews and ratings for a better understanding of rental options.",
-                    "Find trustworthy and verified rental listings to ensure a hassle-free experience.",
+                    "Every space is checked, rated, and reviewed—so you rent with confidence.",
+                    "Easily scroll through spaces, with smart filters and map views to guide you.",
+                    "Refine by budget, location, amenities, and more—get exactly what you're looking for.",
                   ][index]
                 }
                 linkText={["Explore", "Search", "Discover"][index]}
