@@ -15,7 +15,11 @@ const s3Client = new S3Client({
 
 const ipv4OnlyAgent = new Agent({
   lookup: (hostname, options, callback) => {
-    dns.lookup(hostname, { family: 4 }, callback); // 👈 Force IPv4 only
+    if (typeof options === "function") {
+      // axios sometimes calls with (hostname, callback)
+      callback = options;
+    }
+    dns.lookup(hostname, { family: 4 }, callback);
   },
 });
 
