@@ -4,11 +4,19 @@ import { wktToGeoJSON } from "@terraformer/wkt";
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import axios from "axios";
+import dns from "dns";
+import { Agent } from "https";
 
 const prisma = new PrismaClient();
 
 const s3Client = new S3Client({
   region: process.env.AWS_REGION,
+});
+
+const ipv4OnlyAgent = new Agent({
+  lookup: (hostname, options, callback) => {
+    dns.lookup(hostname, { family: 4 }, callback); // 👈 Force IPv4 only
+  },
 });
 
 export const getProperties = async (
@@ -238,6 +246,7 @@ export const createProperty = async (
         "User-Agent": "KeyloopApp/1.0 (muhammad.mk901@gmail.com)",
       },
       timeout: 10000,
+      httpsAgent: ipv4OnlyAgent,
     });
     const [longitude, latitude] =
       geocodingResponse.data[0]?.lon && geocodingResponse.data[0]?.lat
