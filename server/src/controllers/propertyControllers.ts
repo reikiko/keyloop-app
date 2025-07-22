@@ -4,6 +4,7 @@ import { wktToGeoJSON } from "@terraformer/wkt";
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 import axios from "axios";
+import https from "https";
 
 const prisma = new PrismaClient();
 
@@ -233,12 +234,16 @@ export const createProperty = async (
         limit: "1",
       },
     ).toString()}`;
-    const geocodingResponse = await axios.get(geocodingUrl, {
+
+    const axiosInstance = axios.create({
+      httpsAgent: new https.Agent({ keepAlive: false }),
+      timeout: 120000,
       headers: {
         "User-Agent": "KeyloopApp (muhammad.mk901@gmail.com)",
       },
-      timeout: 120000,
     });
+
+    const geocodingResponse = await axiosInstance.get(geocodingUrl);
     const [longitude, latitude] =
       geocodingResponse.data[0]?.lon && geocodingResponse.data[0]?.lat
         ? [
@@ -258,7 +263,7 @@ export const createProperty = async (
     const newProperty = await prisma.property.create({
       data: {
         ...propertyData,
-        photoUrls: [""],
+        photoUrls,
         locationId: location.id,
         managerCognitoId,
         amenities:
