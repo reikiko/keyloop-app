@@ -237,6 +237,7 @@ export const createProperty = async (
       headers: {
         "User-Agent": "KeyloopApp (muhammad.mk901@gmail.com)",
       },
+      timeout: 120000,
     });
     const [longitude, latitude] =
       geocodingResponse.data[0]?.lon && geocodingResponse.data[0]?.lat
