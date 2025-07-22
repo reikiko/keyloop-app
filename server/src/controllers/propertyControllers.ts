@@ -235,7 +235,7 @@ export const createProperty = async (
     ).toString()}`;
     const geocodingResponse = await axios.get(geocodingUrl, {
       headers: {
-        "User-Agent": "KeyloopApp justsomedummyemail@gmail.com",
+        "User-Agent": "KeyloopApp/1.0 (muhammad.mk901@gmail.com)",
       },
     });
     const [longitude, latitude] =
@@ -257,7 +257,7 @@ export const createProperty = async (
     const newProperty = await prisma.property.create({
       data: {
         ...propertyData,
-        photoUrls,
+        photoUrls: [""],
         locationId: location.id,
         managerCognitoId,
         amenities:
