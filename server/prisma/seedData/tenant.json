@@ -26,10 +26,10 @@
     "email": "alice.brown@example.com",
     "phoneNumber": "+1 (555) 111-2222",
     "properties": {
-      "connect": []
+      "connect": [{ "id": 6 }]
     },
     "favorites": {
-      "connect": [{ "id": 3 }]
+      "connect": [{ "id": 3 }, { "id": 7 }]
     }
   },
   {
