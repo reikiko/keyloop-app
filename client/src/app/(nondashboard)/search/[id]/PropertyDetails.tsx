@@ -12,7 +12,7 @@ const PropertyDetails = ({ propertyId }: PropertyDetailsProps) => {
     isLoading,
   } = useGetPropertyQuery(propertyId);
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <>...</>;
   if (isError || !property) {
     return <>Property not Found</>;
   }

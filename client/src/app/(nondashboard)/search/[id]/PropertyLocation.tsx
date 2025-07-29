@@ -19,7 +19,7 @@ const PropertyLocation = ({ propertyId }: PropertyDetailsProps) => {
 
     const map = new mapboxgl.Map({
       container: mapContainerRef.current!,
-      style: "mapbox://styles/majesticglue/cm6u301pq008b01sl7yk1cnvb",
+      style: "mapbox://styles/reikiko/cl4bljo1p000s15r5z5bl8icj",
       center: [
         property.location.coordinates.longitude,
         property.location.coordinates.latitude,
@@ -27,7 +27,9 @@ const PropertyLocation = ({ propertyId }: PropertyDetailsProps) => {
       zoom: 14,
     });
 
-    const marker = new mapboxgl.Marker()
+    const marker = new mapboxgl.Marker({
+      color: "#dc2828",
+    })
       .setLngLat([
         property.location.coordinates.longitude,
         property.location.coordinates.latitude,
@@ -41,7 +43,7 @@ const PropertyLocation = ({ propertyId }: PropertyDetailsProps) => {
     return () => map.remove();
   }, [property, isError, isLoading]);
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <></>;
   if (isError || !property) {
     return <>Property not Found</>;
   }
