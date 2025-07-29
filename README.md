@@ -1,4 +1,4 @@
-![Home Screenshot](public/keyloop.png)
+![Home Screenshot](client/public/keyloop.png)
 # 🔑 Keyloop — Fullstack Rental Discovery App
 
 **Keyloop** is a modern, fullstack rental discovery platform built using **Next.js** and **Express.js**, designed to help users search, explore, and book verified rental properties with ease. Adapted from a YouTube tutorial by Ed Roh, this project has been customized with new branding, layout, and copy to create a unique and scalable rental app experience.
