@@ -45,7 +45,7 @@ const PropertyLocation = ({ propertyId }: PropertyDetailsProps) => {
 
   if (isLoading) return <></>;
   if (isError || !property) {
-    return <>Property not Found</>;
+    return <></>;
   }
 
   return (
